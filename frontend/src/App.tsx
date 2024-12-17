@@ -9,6 +9,7 @@ import ReactFlow, {
   Panel,
   useReactFlow,
   NodeTypes,
+  ReactFlowProvider,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 import { 
@@ -102,6 +103,14 @@ const nodeTypes: NodeTypes = {
 };
 
 const App: React.FC = () => {
+  return (
+    <ReactFlowProvider>
+      <AppContent />
+    </ReactFlowProvider>
+  );
+};
+
+const AppContent: React.FC = () => {
   const [nodes, setNodes] = useState<Node[]>([]);
   const [edges, setEdges] = useState<Edge[]>([]);
   const [credentials, setCredentials] = useState<VCenterCredentials>({
